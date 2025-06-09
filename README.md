@@ -10,7 +10,7 @@
 ## Description
 **Author(s)**: [LaswitchTech](support@laswitchtech.com)
 
-LaswitchTech - Core Framework extension.
+LaswitchTech - Core Framework extension. This extension provides a toolbar containing various widgets that can be used to enhance the user interface of your application.
 
 ## License
 This software is distributed under the [GPLv3](LICENSE) license.
