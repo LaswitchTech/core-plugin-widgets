@@ -64,7 +64,7 @@
     <!-- ======= End Plugin's Widget ======= -->
 
     <!-- ======= App Drawer ======= -->
-    <?php if($this->Auth->isAuthenticated()): ?>
+    <?php if($this->Auth && $this->Auth->isAuthenticated()): ?>
         <?php if(count($this->Builder->menu('apps')) > 0): ?>
             <li class="nav-item">
                 <div class="dropdown">
@@ -109,7 +109,7 @@
     <!-- ======= End App Drawer ======= -->
 
     <!-- ======= Profile ======= -->
-    <?php if($this->Auth->isAuthenticated()): ?>
+    <?php if($this->Auth && $this->Auth->isAuthenticated()): ?>
         <li class="nav-item dropdown">
             <button id="profileMenu" type="button" class="nav-link text-decoration-none ms-2 p-0 animate-pulse-hover" data-bs-auto-close="outside" data-bs-toggle="dropdown" aria-expanded="false">
                 <img src="/avatar?username=<?= $this->Auth->user()->username ?>" alt="avatar" width="48" height="48" class="rounded-circle">
@@ -149,9 +149,9 @@
     <!-- ======= End Profile ======= -->
 
     <!-- ======= Sign In ======= -->
-    <?php if(!$this->Auth->isAuthenticated()): ?>
+    <?php if($this->Auth && !$this->Auth->isAuthenticated()): ?>
         <li class="nav-item ms-2">
-            <a href="/signin?redirect=<?= $this->getRoute() ?>" class="btn btn-outline-light my-1 px-2"><?= $this->Locale->get('Sign in'); ?></a>
+            <a href="/signin?redirect=<?= $this->Request->getNamespace() ?>" class="btn btn-outline-light my-1 px-2"><?= $this->Locale->get('Sign in'); ?></a>
         </li>
     <?php endif; ?>
     <!-- ======= End Sign In ======= -->
