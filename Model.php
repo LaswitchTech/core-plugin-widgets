@@ -1,41 +1,39 @@
 <?php
 
-/**
- * Core Framework - WidgetsModel
- *
- * @license    MIT (https://mit-license.org/)
- * @author     Louis Ouellet <louis@laswitchtech.com>
- */
-
 // Import additionnal class into the global namespace
 use \LaswitchTech\Core\Abstracts\Model;
 
 class WidgetsModel extends Model {
 
     // Core Properties
-    private $Auth;
-    private $Config;
-    private $Locale;
-    private $Builder;
-    private $Request;
+    protected $Request;
+    protected $Builder;
+    protected $Locale;
+    protected $Config;
+    protected $Auth;
 
     // Properties
-    private $Path;
+    protected $Path;
 
+    /**
+     * Constructor
+     */
     public function __construct()
     {
         // Call Parent Constructor
         parent::__construct();
 
         // Import Global Variables
-        global $AUTH, $BUILDER, $CONFIG, $LOCALE, $REQUEST;
+        global $REQUEST, $BUILDER, $LOCALE, $CONFIG, $AUTH;
+
+        // Set Core Properties
+        $this->Request = $REQUEST;
+        $this->Builder = $BUILDER;
+        $this->Locale = $LOCALE;
+        $this->Config = $CONFIG;
+        $this->Auth = $AUTH;
 
         // Set Properties
-        $this->Auth = $AUTH;
-        $this->Config = $CONFIG;
-        $this->Locale = $LOCALE;
-        $this->Builder = $BUILDER;
-        $this->Request = $REQUEST;
         $this->Path = $this->Config->root() . DIRECTORY_SEPARATOR . "lib" . DIRECTORY_SEPARATOR . "plugins";
     }
 
@@ -44,7 +42,7 @@ class WidgetsModel extends Model {
      *
      * @return void
      */
-    private function load(): void
+    protected function load(): void
     {
         // Check if the Plugin directory exists
         if(is_dir($this->Path)){
