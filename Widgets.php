@@ -1,10 +1,3 @@
-<!--
-  Core Framework - Widget File
-
-  @license    MIT (https://mit-license.org/)
-  @author     Louis Ouellet <louis@laswitchtech.com>
--->
-
 <!-- ======= Widgets ======= -->
 <ul id="plugin_widgets" class="flex-grow-1 nav nav-pills ms-3 d-flex align-items-center justify-content-end ms-auto z-1040">
 
